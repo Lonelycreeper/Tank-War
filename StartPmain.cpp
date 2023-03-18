@@ -1,6 +1,6 @@
 #include<io.h>
 #include<iostream>
-#include <fstream>
+#include<fstream>
 #include<graphics.h>
 void repair(int s)
 {
