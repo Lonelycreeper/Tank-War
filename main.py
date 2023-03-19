@@ -18,7 +18,7 @@ ST=2
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image =py.image.load("./img/Tank.png").convert()
+        self.image =py.image.load("./img/Tank.png").convert()#load image
         self.rect = self.image.get_rect()
         self.image = pygame.transform.scale(self.image, size)
     def update(self):
