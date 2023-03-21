@@ -8,6 +8,7 @@ scr=py.display.set_mode((600,450),pygame.RESIZABLE)
 py.display.set_caption("Tank War")
 WIDTH=60
 HEIGHT=60
+rt=0
 clock = pygame.time.Clock()
 pygame.display.flip()
 V=1
@@ -25,25 +26,41 @@ class Player(pygame.sprite.Sprite):
         posi=self.rect
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
-                xy[0] -=V
-                self.image =py.image.load("./img/Tank-l.png").convert()
-                self.image = pygame.transform.scale(self.image, size2)
-                pygame.time.wait(ST)
+                rt = 0
+                print(rt)
+                if rt == 0:
+                        
+                        xy[0] -=V
+                        self.image =py.image.load("./img/Tank-l.png").convert()
+                        self.image = pygame.transform.scale(self.image, size2)
+                        pygame.time.wait(ST)
         if keys[pygame.K_RIGHT]:
-                xy[0] += V
-                self.image =py.image.load("./img/Tank-r.png").convert()
-                self.image = pygame.transform.scale(self.image, size2)
-                pygame.time.wait(ST)
+                rt = 0
+                print(rt)
+                if rt == 0:
+                        xy[0] += V
+                        self.image = py.image.load("./img/Tank-r.png").convert()
+                        self.image = pygame.transform.scale(self.image, size2)
+                        pygame.time.wait(ST) 
+                
         if keys[pygame.K_UP]:
-                xy[1] -= V
-                self.image =py.image.load("./img/Tank.png").convert()
+                rt = 1
+                print(rt)
+                if rt == 1:
+                    xy[1] -= V
+                self.image = py.image.load("./img/Tank.png").convert()
                 self.image = pygame.transform.scale(self.image, size)
                 pygame.time.wait(ST)
+
         if keys[pygame.K_DOWN]:
-                xy[1] +=V
-                self.image =py.image.load("./img/Tank-d.png").convert()
+                rt = 1
+                print(rt)
+                if rt == 1:
+                    xy[1] += V
+                self.image = py.image.load("./img/Tank-d.png").convert()
                 self.image = pygame.transform.scale(self.image, size)
                 pygame.time.wait(ST)
+
         posi=posi.move(xy)
         scr.blit(self.image,posi)
         pygame.display.flip()
