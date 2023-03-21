@@ -19,12 +19,9 @@ ST=2
 
     
 class Player(pygame.sprite.Sprite):
-<<<<<<< HEAD
-   
 
 
     def __init__(self):
-      
         pygame.sprite.Sprite.__init__(self)
         self.image =py.image.load("./img/Tank.png").convert()#load image
         self.rect = self.image.get_rect()
