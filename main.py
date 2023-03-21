@@ -24,9 +24,9 @@ class Player(pygame.sprite.Sprite):
         self.image =py.image.load("./img/Tank.png").convert()#load image
         self.rect = self.image.get_rect()
         self.image = pygame.transform.scale(self.image, size)
-    def update(self):
+def update(self):
         x=0
-        y=0
+         y=0
         posi=self.rect
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
