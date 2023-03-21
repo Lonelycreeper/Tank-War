@@ -54,6 +54,7 @@ class Player(pygame.sprite.Sprite):
                         self.image =py.image.load("./img/Tank.png").convert_alpha()
                         self.image = pygame.transform.scale(self.image, size)
                         self.image=py.transform.rotate(self.image,self.angle)
+                        
                 elif keys[py.K_d]:
                         self.angle-=1
                         self.image =py.image.load("./img/Tank.png").convert_alpha()
