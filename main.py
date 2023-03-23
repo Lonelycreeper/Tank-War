@@ -9,14 +9,24 @@ scr=py.display.set_mode((600,450),pygame.RESIZABLE)
 py.display.set_caption("Tank War")
 WIDTH=60
 HEIGHT=60
+x=0
+y=0
 clock = pygame.time.Clock()
 pygame.display.flip()
 size=[40,55]
 size2=[55,43]
 xy=[0,0]
 ST=2
+<<<<<<< HEAD
 ST2=2    
+=======
+
+    
+>>>>>>> c6e1ce8803084002154a4db7a032534927303c0d
 class Player(pygame.sprite.Sprite):
+        def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+     
         def __init__(self):
                 pygame.sprite.Sprite.__init__(self)
                 self.image =py.image.load("./img/Tank.png").convert_alpha()#load image
@@ -65,7 +75,6 @@ class Player(pygame.sprite.Sprite):
                 posi=posi.move(xy)
                 scr.blit(self.image,posi)
                 pygame.display.flip()
-                
 
 class Bullet(pygame.sprite.Sprite):
     def __init__(self):
