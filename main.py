@@ -21,65 +21,7 @@ ST=2
 class Player(pygame.sprite.Sprite):
         def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image =py.image.load("./img/Tank.png").convert()#load image
-        self.rect = self.image.get_rect()
-        self.image = pygame.transform.scale(self.image, size)
-def update(self):
-        x=0
-         y=0
-        posi=self.rect
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_LEFT]:
-                x = 1
-
-                if x == 1:
-                    if y == 0:
-                            xy[0] -= V
-                            self.image =py.image.load("./img/Tank-l.png").convert()
-                            self.image = pygame.transform.scale(self.image, size2)
-                            pygame.time.wait(ST)
-
-                        
-                        
-        if keys[pygame.K_RIGHT]:
-                x = 1
-                
-                
-
-                if x== 1:
-                    if y == 0:
-                            xy[0] += V
-                            self.image = py.image.load(
-                                "./img/Tank-r.png").convert()
-
-                            self.image = pygame.transform.scale(self.image, size2)
-                            pygame.time.wait(ST)            
-                
-        if keys[pygame.K_UP]:
-                y = 1
-                
-                
-
-                if y == 1:
-                    if x ==0:
-                        xy[1] -= V
-                        self.image = py.image.load("./img/Tank.png").convert()
-                        self.image = pygame.transform.scale(self.image, size)
-                        pygame.time.wait(ST)
-
-        if keys[pygame.K_DOWN]:
-                y = 1    
-                if y == 1:
-                    if x == 0:
-                        xy[1] += V
-                        self.image = py.image.load("./img/Tank-d.png").convert()
-                        self.image = pygame.transform.scale(self.image, size)
-                        pygame.time.wait(ST)
-
-        posi=posi.move(xy)
-        scr.blit(self.image,posi)
-        pygame.display.flip()
-=======
+     
         def __init__(self):
                 pygame.sprite.Sprite.__init__(self)
                 self.image =py.image.load("./img/Tank.png").convert_alpha()#load image
@@ -128,8 +70,6 @@ def update(self):
                 posi=posi.move(xy)
                 scr.blit(self.image,posi)
                 pygame.display.flip()
-                
->>>>>>> 68b35db02a2a8c01bdd7ec0d8640e07d169abe3b
 
 class Bullet(pygame.sprite.Sprite):
     def __init__(self):
