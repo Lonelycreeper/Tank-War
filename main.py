@@ -17,12 +17,7 @@ size=[40,55]
 size2=[55,43]
 xy=[0,0]
 ST=2
-<<<<<<< HEAD
 ST2=2    
-=======
-
-    
->>>>>>> c6e1ce8803084002154a4db7a032534927303c0d
 class Player(pygame.sprite.Sprite):
         def __init__(self):
         pygame.sprite.Sprite.__init__(self)
