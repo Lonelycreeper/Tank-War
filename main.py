@@ -1,3 +1,4 @@
+from typing import Self
 import pygame
 import sys
 import time
@@ -19,9 +20,6 @@ xy=[0,0]
 ST=2
 ST2=2    
 class Player(pygame.sprite.Sprite):
-        def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
-     
         def __init__(self):
                 pygame.sprite.Sprite.__init__(self)
                 self.image =py.image.load("./img/Tank.png").convert_alpha()#load image
