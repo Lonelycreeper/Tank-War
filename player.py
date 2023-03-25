@@ -27,28 +27,28 @@ class Player(pygame.sprite.Sprite):
         def update(self):
                 posi=self.rect
                 keys = pygame.key.get_pressed()
-                if not keys[pygame.UP] and keys[pygame.K_DOWN]:
+                if not keys[pygame.K_UP] and keys[pygame.K_DOWN]:
                         if keys[pygame.K_LEFT]:
                                 xy[0] -= self.v
                                 self.image =py.image.load("./img/Tank.png").convert_alpha()
                                 self.image = pygame.transform.scale(self.image, size)
                                 self.image=py.transform.rotate(self.image,90)
                                 pygame.time.wait(ST)
-                if not keys[pygame.UP] and keys[pygame.K_DOWN]:
+                if not keys[pygame.K_UP] and keys[pygame.K_DOWN]:
                         if keys[pygame.K_RIGHT]:
                                 xy[0] +=self.v
                                 self.image =py.image.load("./img/Tank.png").convert_alpha()
                                 self.image = pygame.transform.scale(self.image, size)
                                 self.image=py.transform.rotate(self.image,270)
                                 pygame.time.wait(ST)
-                if not keys[pygame.RIGHT] and keys[pygame.K_LEFT]:
+                if not keys[pygame.K_RIGHT] and keys[pygame.K_LEFT]:
                         if keys[pygame.K_UP]:
                                 xy[1] -=self.v
                                 self.image =py.image.load("./img/Tank.png").convert_alpha()
                                 self.image = pygame.transform.scale(self.image, size)
                                 pygame.time.wait(ST)
                 
-                if not keys[pygame.UP] and keys[pygame.K_DOWN]:
+                if not keys[pygame.K_UP] and keys[pygame.K_DOWN]:
                         if keys[pygame.K_DOWN]:
                                 xy[1] += self.v
                                 self.image =py.image.load("./img/Tank.png").convert_alpha()
