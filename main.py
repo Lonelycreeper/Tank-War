@@ -11,9 +11,9 @@ player=Player()
 enemy=EmeCar()
 all_sprites.add(player,enemy)
 def MainPlayer():
-    player.update()
-    scr.blit(player.image,player.posi)
-    pygame.display.flip()
+        player.update()
+        scr.blit(player.image,player.posi)
+        pygame.display.flip()
 def EnemyMove():
     enemy.Create()
     enemy.update()
@@ -29,3 +29,4 @@ while run:
     scr.fill((255,255,255))
     MainPlayer()
     EnemyMove()
+
