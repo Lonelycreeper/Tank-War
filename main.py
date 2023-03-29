@@ -3,6 +3,8 @@ from enemy import EmeCar
 from player import Player
 import sys
 py=pygame
+clock = pygame.time.Clock()
+clock.tick(60)
 py.init
 scr=py.display.set_mode((600,450),pygame.RESIZABLE)
 py.display.set_caption("Tank War")
