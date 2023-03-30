@@ -9,7 +9,7 @@ class EmeCar(pygame.sprite.Sprite):
                 self.image=pygame.image.load("./img/hehe.png").convert_alpha()
                 self.rect=self.image.get_rect()
                 self.re=0
-                self.V=1
+                self.V=3
                 self.posi=self.rect
     def update(self):
         posi=self.rect

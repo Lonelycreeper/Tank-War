@@ -20,7 +20,7 @@ class Player(pygame.sprite.Sprite):
                 self.image =py.image.load("./img/tank.png").convert_alpha()#load image
                 self.rect = self.image.get_rect()
                 self.image = pygame.transform.scale(self.image, size)
-                self.v=1
+                self.v=4
                 self.angle=0
                 self.posi=self.rect 
                 
@@ -55,8 +55,34 @@ class Player(pygame.sprite.Sprite):
                 self.posi=posi.move(xy)
 
 class Bullet(pygame.sprite.Sprite):
-    def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
+        def __init__(self):
+                pygame.sprite.Sprite.__init__(self)
+                self.image=py.image.load("./img/bullet.png")
+                self.rect=self.image.get_rect()
+                self.v=3
+                self.xy=[0,0]
+                self.move=1
+        def update(self):
+                posi=self.rect
+                keys=pygame.key.get_pressed()
+                if keys[pygame.K_UP]:
+                        self.move=1
+                if keys[pygame.K_DOWN]:
+                        self.move=2
+                if keys[pygame.K_LEFT]:
+                        self.move==3
+                if keys[pygame.K_RIGHT]:
+                        self.move=4
+                if self.move==1:
+                        self.xy[1]-=self.v
+                if self.move==2:
+                        self.xy[1]+=self.v
+                if self.move==3:
+                        self.xy[0]-=self.v
+                if self.move==4:
+                        self.xy[0]+=self.v
+                        
+
            
         
         
