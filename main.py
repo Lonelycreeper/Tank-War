@@ -1,6 +1,7 @@
 import pygame
 from enemy import EmeCar
 from player import Player
+from player import Bullet
 import sys
 py=pygame
 clock = pygame.time.Clock()
@@ -11,9 +12,11 @@ py.display.set_caption("Tank War")
 all_sprites = pygame.sprite.Group()
 player=Player()
 enemy=EmeCar()
+bullet=Bullet()
 all_sprites.add(player,enemy)
 def MainPlayer():
         player.update()
+        bullet.update()
         scr.blit(player.image,player.posi)
         pygame.display.flip()
 def EnemyMove():

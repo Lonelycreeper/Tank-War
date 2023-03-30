@@ -57,30 +57,37 @@ class Player(pygame.sprite.Sprite):
 class Bullet(pygame.sprite.Sprite):
         def __init__(self):
                 pygame.sprite.Sprite.__init__(self)
-                self.image=py.image.load("./img/bullet.png")
+                self.image=py.image.load("./img/hehe.png").convert_alpha()
                 self.rect=self.image.get_rect()
                 self.v=3
                 self.xy=[0,0]
-                self.move=1
+                self.move=0
+                self.toward=1
+                self.posi=self.rect
         def update(self):
                 posi=self.rect
                 keys=pygame.key.get_pressed()
-                if keys[pygame.K_UP]:
-                        self.move=1
-                if keys[pygame.K_DOWN]:
-                        self.move=2
-                if keys[pygame.K_LEFT]:
-                        self.move==3
-                if keys[pygame.K_RIGHT]:
-                        self.move=4
-                if self.move==1:
-                        self.xy[1]-=self.v
-                if self.move==2:
-                        self.xy[1]+=self.v
-                if self.move==3:
-                        self.xy[0]-=self.v
-                if self.move==4:
-                        self.xy[0]+=self.v
+                if self.move==0:
+                        if keys[pygame.K_UP]:
+                                self.toward=1
+                        if keys[pygame.K_DOWN]:
+                                self.toward=2
+                        if keys[pygame.K_LEFT]:
+                                self.toward=3
+                        if keys[pygame.K_RIGHT]:
+                                self.toward=4
+                        if keys[pygame.K_f]:
+                                self.move=1
+                else:
+                        if self.toward==1:
+                                self.xy[1]-=self.v
+                        if self.toward==2:
+                                self.xy[1]+=self.v
+                        if self.toward==3:
+                                self.xy[0]-=self.v
+                        if self.toward==4:
+                                self.xy[0]+=self.v
+                self.posi=posi.move(self.xy)
                         
 
            
