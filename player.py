@@ -14,7 +14,7 @@ size2=[55,43]
 sizet=[20,25]
 ST=2
 xy=[0,0]
-ST2=2    
+ST2=0    
 class Player(pygame.sprite.Sprite):
         def __init__(self):
                 pygame.sprite.Sprite.__init__(self)
@@ -23,7 +23,7 @@ class Player(pygame.sprite.Sprite):
                 self.rect = self.image.get_rect()
                 self.image = pygame.transform.scale(self.image, size)
                 self.ttimage=py.transform.scale(self.ttimage, sizet)
-                self.v=4
+                self.v=3
                 self.angle=0
                 self.posi=self.rect
                 self.xy=xy 

@@ -1,7 +1,7 @@
 from player import xy
 import pygame
 import random
-ST2=1
+ST2=0
 size=[40,55]
 class EmeCar(pygame.sprite.Sprite):
     def __init__(self):
