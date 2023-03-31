@@ -7,7 +7,7 @@ py=pygame
 clock = pygame.time.Clock()
 clock.tick(60)
 py.init
-scr=py.display.set_mode((600,450),pygame.RESIZABLE)
+scr=py.display.set_mode((600,450),pygame.RESIZABLE)#init of screen
 py.display.set_caption("Tank War")
 all_sprites = pygame.sprite.Group()
 player=Player()
@@ -18,6 +18,10 @@ def MainPlayer():
         player.update()
         bullet.update()
         scr.blit(player.image,player.posi)
+        if bullet.move==1:
+            scr.blit(bullet.image,bullet.posi)
+        else:
+            scr.blit(bullet.image,player.posi)
 def EnemyMove():
     enemy.Create()
     enemy.update()
@@ -30,7 +34,7 @@ def main():
 run = True
 scr.fill((255,255,255))
 all_sprites.draw(scr)
-while run:
+while run:#main function of this game
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
