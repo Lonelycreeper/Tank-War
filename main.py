@@ -18,20 +18,23 @@ def MainPlayer():
         player.update()
         bullet.update()
         scr.blit(player.image,player.posi)
-        pygame.display.flip()
 def EnemyMove():
     enemy.Create()
     enemy.update()
     scr.blit(enemy.image,enemy.posi)
+def main():
+    scr.fill((255,255,255))
+    MainPlayer()
+    EnemyMove()
+        
 run = True
+scr.fill((255,255,255))
 all_sprites.draw(scr)
 while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-    pygame.display.flip()
-    scr.fill((255,255,255))
-    MainPlayer()
-    EnemyMove()
+    main()
+    pygame.display.update()
 
