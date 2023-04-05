@@ -4,6 +4,9 @@ from player import Player
 from player import Bullet
 import sys,os
 import ctypes
+import random
+brick_image_path = './img/brick.png'
+brick_image = pygame.image.load(brick_image_path)
 py=pygame
 clock = pygame.time.Clock()
 clock.tick(60)
@@ -11,12 +14,37 @@ py.init
 scr=py.display.set_mode((1550,850),pygame.NOFRAME)#init of screen
 py.display.set_caption("Tank War")
 all_sprites = pygame.sprite.Group()
+brick_sprites = pygame.sprite.Group()
 boom=py.image.load("./img/boom.png").convert_alpha()
 player=Player()
 enemy=EmeCar()
 bullet=Bullet()
 enbullet=EnBullet()
+brick_sprites.add(brick_sprites)
 all_sprites.add(player,enemy)
+class MapSprite(pygame.sprite.Sprite):
+    def __init__(self):
+        py.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load("./img/brick.png")
+        self.rect = self.image.get_rect()      
+    def map():
+        brick_sprites= pygame.sprite.Group()
+        pygame.display.update()
+        brick_image_path = 'brick.png'
+        rick_image = pygame.image.load(brick_image_path)
+        num_bricks = 20
+        brick_size = (32, 32)
+        for i in range(num_bricks):
+            x = random.randint(0, 1550 - brick_size[0])
+            y = random.randint(0, 850 - brick_size[1])
+            rect = pygame.Rect(x, y, *brick_size)
+            brick_sprite = MapSprite(brick_image_path, rect)
+            brick_sprites.add(brick_sprite)
+            brick_sprites.draw(scr)
+            pygame.display.update()
+
+
+
 def MainPlayer():
         player.update()
         bullet.update()
@@ -60,6 +88,7 @@ while run:#main function of this game
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+    brick_sprites.draw(scr)
     main()
     pygame.display.update()
 
