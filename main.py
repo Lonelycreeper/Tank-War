@@ -108,7 +108,7 @@ def EnemyMove():
         enemy.bmove=0
 
 def main():
-    all_sprites.draw(scr)  # 将所有精灵绘制到屏幕上
+    brick_sprites.draw(scr)  # 将墙精灵绘制到屏幕上
     map()                   # 绘制障碍物
     MainPlayer()
     EnemyMove() 
@@ -124,8 +124,6 @@ while run:
             sys.exit()
 
     scr.fill((255, 255, 255))# 清空屏幕
-    all_sprites.draw(scr)     # 将所有精灵绘制到屏幕上
-    map()                     # 绘制障碍物
     main()
     pygame.display.flip()     # 更新屏幕
 
