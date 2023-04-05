@@ -1,8 +1,8 @@
 import pygame
-from enemy import EmeCar,EnBullet
-from player import Player
-from player import Bullet
-import sys,os
+from enemy import EmeCar, EnBullet
+from player import Player, Bullet
+import sys
+import os
 import ctypes
 import random
 
@@ -10,7 +10,7 @@ FPS = 290
 py = pygame
 clock = pygame.time.Clock()
 py.init()
-scr = py.display.set_mode((1550,850), pygame.NOFRAME)
+scr = py.display.set_mode((1550, 850), pygame.NOFRAME)
 py.display.set_caption("Tank War")
 
 all_sprites = pygame.sprite.Group()
@@ -36,9 +36,9 @@ def map():
     brick_image_path = './img/brick.png'
     brick_image = pygame.image.load(brick_image_path)
     brick_size = (32, 32)
-    num_bricks = random.randint(10, 30)  # 随机生成 10-30 个障碍物
     placed_bricks = []  # 已经放置的障碍物坐标
-    for i in range(num_bricks):
+    num_bricks = 0  # 已经生成的障碍物数量
+    while num_bricks < 10:  # 只生成10个障碍物
         retry_count = 0  # 计数器，记录尝试次数
         while True:
             # 随机生成砖块的位置和朝向
@@ -56,9 +56,9 @@ def map():
             if not overlap:
                 break
             retry_count += 1
-            if retry_count > 100:  # 如果尝试次数超过 100 次，则退出循环
+            if retry_count > 10:  # 如果尝试次数超过 100 次，则退出循环
                 break
-        if retry_count > 100:
+        if retry_count > 10:
             continue  # 如果尝试次数超过 100 次，跳过当前障碍物的生成
         # 记录已经放置的砖块坐标
         placed_bricks.append((x, y))
@@ -73,8 +73,8 @@ def map():
         elif toward == 'up':
             brick_sprite.image = pygame.transform.rotate(brick_sprite.image, 180)
         brick_sprites.add(brick_sprite)
+        num_bricks += 1
     brick_sprites.draw(scr) # 绘制砖块精灵到屏幕上
-
 
 def MainPlayer():
         player.update()
@@ -84,7 +84,7 @@ def MainPlayer():
             scr.blit(bullet.image, bullet.posi)
         else:
             scr.blit(bullet.image, player.posi)
-        if enemy.xy[0]-40<=bullet.xy[0]<=enemy.xy[0]+40 and enemy.xy[1]-20<=bullet.xy[1]<=enemy.xy[1]+20 and bullet.move == 1:
+        if enemy.xy[0] - 40 <= bullet.xy[0] <= enemy.xy[0] + 40 and enemy.xy[1] - 20 <= bullet.xy[1] <= enemy.xy[1] + 20 and bullet.move == 1:
             bullet.move = 0
             enemy.re = 0
         if bullet.xy[1]-20<=enbullet.xy[1]<bullet.xy[1]+20 and bullet.xy[0]-20<=enbullet.xy[0]<=bullet.xy[0]+20 and bullet.move == 1:
@@ -92,11 +92,11 @@ def MainPlayer():
             bullet.move = 2
             enbullet.move = 2
             enemy.bmove = 2
-        
+
 def EnemyMove():
     enemy.Create()
     enemy.update()
-    scr.blit(enemy.image, enemy.posi)
+    scr.blit(enemy.image,enemy.posi)
     enbullet.update()
     if enbullet.move==0:
         enbullet.image=pygame.transform.rotate(enbullet.image,enemy.angle)
@@ -123,7 +123,7 @@ while run:
             pygame.quit()
             sys.exit()
 
-    scr.fill((255, 255, 255))  # 清空屏幕
+    scr.fill((255, 255, 255))# 清空屏幕
     all_sprites.draw(scr)     # 将所有精灵绘制到屏幕上
     map()                     # 绘制障碍物
     main()
