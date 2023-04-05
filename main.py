@@ -2,7 +2,8 @@ import pygame
 from enemy import EmeCar,EnBullet
 from player import Player
 from player import Bullet
-import sys
+import sys,os
+import ctypes
 py=pygame
 clock = pygame.time.Clock()
 clock.tick(60)
