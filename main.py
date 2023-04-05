@@ -33,12 +33,13 @@ class MapSprite(pygame.sprite.Sprite):
 
 def map():
     brick_sprites = pygame.sprite.Group()
-    brick_image_path = './img/brick.png"'
+    brick_image_path = './img/brick.png'
     brick_image = pygame.image.load(brick_image_path)
     brick_size = (32, 32)
     num_bricks = random.randint(10, 30)  # 随机生成 10-30 个障碍物
     placed_bricks = []  # 已经放置的障碍物坐标
     for i in range(num_bricks):
+        retry_count = 0  # 计数器，记录尝试次数
         while True:
             # 随机生成砖块的位置和朝向
             x = random.randint(0, 1550 - brick_size[0])
@@ -54,6 +55,11 @@ def map():
                     break
             if not overlap:
                 break
+            retry_count += 1
+            if retry_count > 100:  # 如果尝试次数超过 100 次，则退出循环
+                break
+        if retry_count > 100:
+            continue  # 如果尝试次数超过 100 次，跳过当前障碍物的生成
         # 记录已经放置的砖块坐标
         placed_bricks.append((x, y))
         # 创建砖块精灵并加入精灵组中
