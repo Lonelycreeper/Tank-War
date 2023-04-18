@@ -13,7 +13,7 @@ clock = pygame.time.Clock()
 size=[40,55]
 size2=[55,43]
 sizet=[20,25]
-xy=[0,0]  
+xy=[50,60]  
 class Player(pygame.sprite.Sprite):
         def __init__(self):
                 pygame.sprite.Sprite.__init__(self)
@@ -25,7 +25,8 @@ class Player(pygame.sprite.Sprite):
                 self.v=3
                 self.angle=0
                 self.posi=self.rect
-                self.xy=xy 
+                self.xy=xy
+                self.life=3 
                 
         def update(self):#main function of player
                 posi=self.rect
@@ -113,11 +114,3 @@ class Bullet(pygame.sprite.Sprite):#the bullet part
                         
 
            
-        
-        
-
-
-#////////////////////sprite//////////////////////////////#
-
-        
-
