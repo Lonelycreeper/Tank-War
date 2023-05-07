@@ -7,18 +7,19 @@ import os
 import ctypes
 from pygame.locals import *
 import random
-
+cmd="python main.py"
 FPS = 290
 py = pygame
 clock = pygame.time.Clock()
 py.init()
 black=(000,000,000)
+red=(255,000,000)
 score=0
 life=3
 strlif=str(life)
 strsc=str(score)
 myfont=pygame.font.Font(None,60)
-overtext=myfont.render("Game Over",True,black)
+overtext=myfont.render("Game Over",True,red)
 scr = py.display.set_mode((1550, 850), pygame.NOFRAME)
 py.display.set_caption("Tank War")
 all_sprites = pygame.sprite.Group()
@@ -61,8 +62,8 @@ def EnemyMove():
     enemy.Create()
     if enemy.re==1:
         enemy.update()
-    scr.blit(enemy.image,enemy.posi)
-    enbullet.update()
+        scr.blit(enemy.image,enemy.posi)
+        enbullet.update()
     if enbullet.move==0:
         enbullet.image=pygame.transform.rotate(enbullet.image,enemy.angle)
         enbullet.toward=enemy.towards
@@ -96,6 +97,10 @@ while run:
         if event.type == pygame.KEYDOWN:
             if event.key == K_0:
                 pygame.quit()
+                sys.exit()
+            if event.key==K_1:
+                pygame.quit()
+                os.system(cmd)
                 sys.exit()
     main()
     pygame.display.update()
